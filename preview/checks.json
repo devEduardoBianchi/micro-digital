@@ -1,0 +1,40 @@
+{
+  "menuTargets": [
+    "#inicio",
+    "#servicos",
+    "#produtos",
+    "#blog",
+    "#quem-somos",
+    "#contato",
+    "#lp-notebooks"
+  ],
+  "whatsappLinks": 31,
+  "productCategories": 12,
+  "allWhatsAppPopupsIntercepted": true,
+  "keyboardEscapeFocus": true,
+  "focusContainment": true,
+  "reducedMotion": true,
+  "viewports": [
+    {
+      "width": 320,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "overflow": false
+    },
+    {
+      "width": 1366,
+      "overflow": false
+    },
+    {
+      "width": 1920,
+      "overflow": false
+    }
+  ],
+  "runtimeErrors": []
+}

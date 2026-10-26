@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Proposta visual | Micro Digital</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      :root {
+        color-scheme: light;
+        --background: #f6f6f3;
+        --text: #202120;
+        --muted: #585b59;
+        --accent: #c81725;
+        --line: #d2d3cf;
+      }
+      body {
+        padding: 55px;
+        max-width: 1440px;
+        margin: auto;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: 42px;
+      }
+      header p {
+        font-size: 13px;
+        color: var(--muted);
+      }
+      h1 {
+        font-size: 44px;
+        letter-spacing: -0.04em;
+      }
+      h2 {
+        font-size: 27px;
+      }
+      h3 {
+        font-size: 18px;
+      }
+      .board {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 18px;
+      }
+      .tile {
+        background: #e9e9e6;
+        min-height: 230px;
+        padding: 27px;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #eee;
+      }
+      .logo img {
+        width: 280px;
+        max-height: 180px;
+        object-fit: contain;
+      }
+      .wide {
+        grid-column: span 2;
+      }
+      .tile p {
+        font-size: 13px;
+        color: #585b59;
+        margin-top: 15px;
+      }
+      .swatches {
+        display: flex;
+        margin-top: 24px;
+        gap: 8px;
+      }
+      .swatches span {
+        height: 58px;
+        flex: 1;
+        border-radius: 4px;
+      }
+      .type {
+        font-family: Outfit;
+        font-size: 56px;
+        line-height: 1.1;
+        margin: 15px 0;
+      }
+      .photo {
+        padding: 0;
+      }
+      .photo img {
+        width: 100%;
+        height: 230px;
+        object-fit: cover;
+      }
+      .year {
+        font: 700 95px/1 Outfit;
+        color: #c81725;
+        letter-spacing: -0.07em;
+      }
+      .footer {
+        margin-top: 28px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: #585b59;
+      }
+      .notes {
+        margin-top: 55px;
+        max-width: 850px;
+      }
+      .notes p {
+        margin-top: 18px;
+      }
+      .notes a {
+        text-decoration: underline;
+        color: #c81725;
+      }
+      @media (max-width: 800px) {
+        body {
+          padding: 25px;
+        }
+        .board {
+          grid-template-columns: 1fr;
+        }
+        .wide {
+          grid-column: auto;
+        }
+        header {
+          display: block;
+        }
+        header p {
+          margin-top: 15px;
+        }
+        .footer {
+          display: block;
+        }
+        h1 {
+          font-size: 34px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Micro Digital.<br />Uma presença mais próxima.</h1>
+        <p>Proposta visual para apresentação ao proprietário.</p>
+      </div>
+      <a class="text-link" href="../index.html">Abrir protótipo ↗</a>
+    </header>
+    <div class="board">
+      <div class="tile logo">
+        <img
+          src="../assets/logo-digital.webp"
+          alt="Proposta de apresentação digital da logo"
+        />
+      </div>
+      <div class="tile">
+        <h3>A marca continua reconhecível.</h3>
+        <p>
+          Lettering Micro, DIGITAL, losango e disco preservados. Bordas
+          refinadas e fundo transparente para uso digital.
+        </p>
+        <p>Versão proposta, sujeita à aprovação.</p>
+      </div>
+      <div class="tile">
+        <h3>Vermelho. Prata. Grafite.</h3>
+        <div class="swatches">
+          <span style="background: #c81725"></span
+          ><span style="background: #d2d3cf"></span
+          ><span style="background: #202120"></span
+          ><span style="background: #f6f6f3"></span>
+        </div>
+        <p>Contraste para ler. Cor para reconhecer.</p>
+      </div>
+      <div class="tile wide">
+        <h3>Uma nova voz visual</h3>
+        <div class="type">Tecnologia perto.<br />Solução de verdade.</div>
+        <p>Outfit nos títulos. Manrope nos textos.</p>
+      </div>
+      <div class="tile photo">
+        <img
+          src="../assets/repair-640.webp"
+          alt="Fotografia ilustrativa de reparo"
+        />
+      </div>
+      <div class="tile">
+        <div class="year">1995</div>
+        <p>
+          História real como ponto de confiança.<br />Sem números ou depoimentos
+          inventados.
+        </p>
+      </div>
+      <div class="tile">
+        <h3>Caminhos diretos</h3>
+        <p>
+          Menu ramificado acessível.<br />Produtos e reparos em uma página.<br />WhatsApp
+          com assunto preenchido.<br />Telefone e e-mail a um toque.
+        </p>
+      </div>
+      <div class="tile">
+        <h3>Pronto para revisar</h3>
+        <p>
+          Protótipo local. Sem publicação.<br />Conteúdo e horários fáceis de
+          alterar.<br />Imagens identificadas como ilustrativas.<br />Blog em
+          página separada, com quatro publicações.
+        </p>
+      </div>
+    </div>
+    <div class="footer">
+      <span>Micro Digital Dourados • Proposta de landing page</span
+      ><span>Logo original preservada em arquivo separado</span>
+    </div>
+    <section class="notes">
+      <h2>Pontos para aprovação</h2>
+      <p>
+        Confirmar dias de atendimento e eventuais intervalos; revisar serviços e
+        categorias; aprovar tratamento digital da logo e fotografias
+        ilustrativas. Revisar os resumos do blog e orientações de 2023.
+      </p>
+      <p>
+        A página oficial não foi alterada. Não há carrinho, pagamento, preços,
+        formulários ou coleta de dados. O visitante inicia voluntariamente o
+        contato pelo WhatsApp, telefone ou e-mail.
+      </p>
+      <p>
+        Base documental:
+        <a href="https://microdigitaldourados.com.br/">Início</a>,
+        <a href="https://microdigitaldourados.com.br/produtos">Produtos</a>,
+        <a href="https://microdigitaldourados.com.br/servi%C3%A7os">Serviços</a
+        >,
+        <a href="https://microdigitaldourados.com.br/quem-somos">Quem Somos</a>,
+        <a href="https://microdigitaldourados.com.br/contato">Contato</a>,
+        <a href="https://microdigitaldourados.com.br/lp-notebooks"
+          >LP-Notebooks</a
+        >
+        e <a href="https://microdigitaldourados.com.br/blog">Blog</a>.
+      </p>
+    </section>
+  </body>
+</html>
