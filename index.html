@@ -8,7 +8,7 @@
       name="description"
       content="Proposta local da Micro Digital Dourados. Informática, equipamentos e assistência técnica desde 1995."
     />
-    <meta name="theme-color" content="#f6f6f3" />
+    <meta name="theme-color" content="#101620" />
     <title>Micro Digital Dourados | Desde 1995</title>
     <link rel="icon" href="assets/logo-digital.webp" type="image/webp" />
     <link
@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="config.js" defer></script>
     <script src="app.js" defer></script>
+    <script src="interactions.js" defer></script>
     <script src="assets/gsap.min.js" defer></script>
     <script src="assets/ScrollTrigger.min.js" defer></script>
     <script src="motion.js" defer></script>
@@ -29,70 +30,100 @@
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <header class="site-header">
       <div class="header-inner">
-        <button
-          class="menu-toggle"
-          id="menu-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="navigation-dialog"
-          aria-haspopup="dialog"
-          aria-label="Abrir menu"
-          hidden
-        >
-          <span class="hamburger" aria-hidden="true"><i></i><i></i><i></i></span
-          ><span class="menu-label">Menu</span>
-        </button>
-        <a
-          class="brand"
-          href="#inicio"
-          aria-label="Micro Digital Dourados, início"
-          ><img
-            src="assets/logo-navbar-transparent.webp"
-            width="240"
-            height="152"
-            alt="Micro Digital Informática"
-        /></a>
+        <a class="brand" href="#inicio" aria-label="Micro Digital Dourados, início">
+          <img src="assets/logo-navbar-transparent.webp" width="240" height="152" alt="Micro Digital Informática" />
+        </a>
+        <nav class="header-nav" aria-label="Navegação principal">
+          <a href="#inicio" aria-current="location">Início</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#produtos">Produtos</a>
+          <a href="blog.html">Blog</a>
+          <a href="#quem-somos">Quem Somos</a>
+          <a href="#contato">Contato</a>
+          <a href="lp-notebooks.html">LP-Notebooks</a>
+        </nav>
         <div class="header-actions">
-          <a class="header-phone" href="tel:+556734222472">(67) 3422-2472</a
-          ><a
-            class="button compact"
-            data-wa="general"
-            href="https://wa.me/5567992537517?text=Ol%C3%A1%2C%20Micro%20Digital!%20Gostaria%20de%20informa%C3%A7%C3%B5es."
-            target="_blank"
-            rel="noopener noreferrer"
-            >Falar no WhatsApp <span aria-hidden="true">↗</span></a
-          >
+          <a class="button compact" data-wa="general" href="https://wa.me/5567992537517" target="_blank" rel="noopener noreferrer">Falar no WhatsApp <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </header>
 
-    <dialog id="navigation-dialog" aria-labelledby="menu-title">
-      <div class="menu-top">
-        <h2 id="menu-title">Explore a Micro Digital</h2>
-        <button
-          id="menu-close"
-          class="close-button"
-          aria-label="Fechar menu"
-          type="button"
-        >
-          ✕
-        </button>
-      </div>
-      <nav aria-label="Navegação principal" class="branched-nav">
-        <span class="trunk" aria-hidden="true"></span
-        ><span class="trunk-selected" aria-hidden="true"></span>
-        <a href="#inicio">Início</a><a href="#servicos">Serviços</a
-        ><a href="#produtos">Produtos</a
-        ><a href="blog.html">Blog <small>Dicas</small></a
-        ><a href="#quem-somos">Quem Somos</a><a href="#contato">Contato</a
-        ><a href="#lp-notebooks">LP-Notebooks <small>Reparos</small></a>
-      </nav>
-      <p class="menu-footer">
-        Informática e assistência técnica.<br />Em Dourados, desde 1995.
-      </p>
-    </dialog>
-
     <main id="conteudo">
+      <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+      <defs>
+      <symbol id="service-icon-computer" viewBox="0 0 24 24">
+      <rect x="3" y="3" width="18" height="13" rx="2"/>
+      <path d="M8 21h8M12 16v5"/>
+      </symbol>
+      <symbol id="service-icon-laptop" viewBox="0 0 24 24">
+      <rect x="5" y="3" width="14" height="13" rx="2"/>
+      <path d="m5 16-3 4h20l-3-4"/>
+      </symbol>
+      <symbol id="service-icon-cpu" viewBox="0 0 24 24">
+      <rect x="6" y="6" width="12" height="12" rx="2"/>
+      <rect x="9" y="9" width="6" height="6" rx="1"/>
+      <path d="M9 3v3m6-3v3M9 18v3m6-3v3M3 9h3m-3 6h3m12-6h3m-3 6h3"/>
+      </symbol>
+      <symbol id="service-icon-printer" viewBox="0 0 24 24">
+      <path d="M6 9V3h12v6M6 17H3V9h18v8h-3"/>
+      <path d="M6 14h12v7H6zM17 11h1"/>
+      </symbol>
+      <symbol id="service-icon-bolt" viewBox="0 0 24 24">
+      <path d="m13 2-9 12h7l-1 8 10-13h-7z"/>
+      </symbol>
+      <symbol id="service-icon-face" viewBox="0 0 24 24">
+      <path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M9 9v1m6-1v1m-6 5c2 2 4 2 6 0"/>
+      </symbol>
+      <symbol id="service-icon-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M12 7v5l3 2"/>
+      </symbol>
+      <symbol id="service-icon-access" viewBox="0 0 24 24">
+      <path d="M12 3v18M3 8l9 4 9-4M5 19l7-7 7 7"/>
+      <circle cx="12" cy="6" r="3"/>
+      </symbol>
+      <symbol id="service-icon-store" viewBox="0 0 24 24">
+      <path d="M3 10V4h18v6M4 10v11h16V10M2 10c0 4 5 4 5 0 0 4 5 4 5 0 0 4 5 4 5 0 0 4 5 4 5 0M9 21v-7h6v7"/>
+      </symbol>
+      <symbol id="service-icon-board" viewBox="0 0 24 24">
+      <rect x="2" y="9" width="20" height="8" rx="4"/>
+      <circle cx="6" cy="13" r="1"/>
+      <circle cx="18" cy="13" r="1"/>
+      <path d="M9 9V7h6v2"/>
+      </symbol>
+      <symbol id="service-icon-keyboard" viewBox="0 0 24 24">
+      <rect x="2" y="5" width="20" height="14" rx="2"/>
+      <path d="M6 9h.01M10 9h.01M14 9h.01M18 9h.01M6 13h.01M10 13h.01M14 13h.01M18 13h.01M7 16h10"/>
+      </symbol>
+      <symbol id="service-icon-projector" viewBox="0 0 24 24">
+      <rect x="2" y="6" width="20" height="13" rx="3"/>
+      <circle cx="16" cy="12" r="3"/>
+      <path d="M5 10h3m-3 4h3M6 19v2m12-2v2"/>
+      </symbol>
+      <symbol id="service-icon-data" viewBox="0 0 24 24">
+      <path d="M7 3h7l5 5v13H5V3h2m7 0v5h5"/>
+      <path d="M8 16a4 4 0 1 0 1-5m-1-1v3h3"/>
+      </symbol>
+      <symbol id="service-icon-disk" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="16" rx="3"/>
+      <circle cx="15" cy="12" r="4"/>
+      <path d="M7 8v8m4-1 4-3"/>
+      </symbol>
+      <symbol id="service-icon-tools" viewBox="0 0 24 24">
+      <path d="M14 6a5 5 0 0 0-6 6l-5 5 4 4 5-5a5 5 0 0 0 6-6l-4 1-2-2z"/>
+      </symbol>
+      <symbol id="service-icon-clean" viewBox="0 0 24 24">
+      <path d="m15 3-5 9m-4-1 9 5-4 6-9-5zM7 14l-3 5m6-4-3 5M19 4v4m-2-2h4"/>
+      </symbol>
+      <symbol id="service-icon-screen" viewBox="0 0 24 24">
+      <rect x="4" y="3" width="16" height="18" rx="2"/>
+      <path d="M10 18h4"/>
+      </symbol>
+      <symbol id="service-icon-parts" viewBox="0 0 24 24">
+      <path d="M8 2v5m8-5v5M5 7h14v6a7 7 0 0 1-14 0zM12 20v2"/>
+      </symbol>
+      </defs>
+      </svg>
       <section
         class="hero"
         id="inicio"
@@ -144,25 +175,92 @@
       </div>
 
       <section
-        class="section container"
+        class="section services-section"
         id="servicos"
         aria-labelledby="servicos-title"
         tabindex="-1"
       >
+        <div class="services-marquee" role="region" aria-label="Áreas de atuação da Micro Digital">
+          <div class="container marquee-heading">
+            <p>PRODUTOS E ASSISTÊNCIA TÉCNICA</p>
+            <button class="marquee-toggle" type="button" aria-pressed="false" hidden>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg>
+              <span>Pausar faixa</span>
+            </button>
+          </div>
+          <div class="marquee-window">
+            <div class="marquee-track">
+              <ul class="marquee-list">
+                <li><svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-cpu"></use></svg><span>Reparo de placas</span></li>
+                <li><svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-computer"></use></svg><span>Computadores</span></li>
+                <li><svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-laptop"></use></svg><span>Notebooks</span></li>
+                <li><svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-printer"></use></svg><span>Impressoras</span></li>
+                <li><svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-computer"></use></svg><span>Monitores</span></li>
+                <li><svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-bolt"></use></svg><span>Nobreaks</span></li>
+                <li><svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-bolt"></use></svg><span>Estabilizadores</span></li>
+                <li><svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-parts"></use></svg><span>Acessórios</span></li>
+                <li><svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-face"></use></svg><span>Ponto facial</span></li>
+                <li><svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-clock"></use></svg><span>Relógios de ponto</span></li>
+                <li><svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-access"></use></svg><span>Catracas eletrônicas</span></li>
+                <li><svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-store"></use></svg><span>Automação comercial</span></li>
+                <li><svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-board"></use></svg><span>Hoverboards</span></li>
+                <li><svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-screen"></use></svg><span>Tablets</span></li>
+                <li><svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-keyboard"></use></svg><span>Teclados e órgãos eletrônicos</span></li>
+                <li><svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-projector"></use></svg><span>Projetores</span></li>
+                <li><svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-clean"></use></svg><span>Limpeza e formatação</span></li>
+                <li><svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-data"></use></svg><span>Recuperação de dados</span></li>
+                <li><svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-tools"></use></svg><span>Troca de telas e baterias</span></li>
+                <li><svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-disk"></use></svg><span>HD para SSD</span></li>
+                <li><svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-cpu"></use></svg><span>Reparo BGA</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="container services-inner">
+
         <div class="section-heading">
+          <p class="eyebrow">ASSISTÊNCIA TÉCNICA · DESDE 1995</p>
           <h2 id="servicos-title">
             Seu equipamento<br />merece <span>cuidado.</span>
           </h2>
           <p>
-            Da manutenção do computador aos eletrônicos da sua rotina. Encontre
-            o atendimento que você precisa.
+            Reparo de placas, limpeza, formatação e recuperação de dados.
+            Encontre o atendimento para o seu equipamento e converse com a equipe.
           </p>
+        </div>
+        <div class="service-features">
+          <a class="service-feature" data-wa="service" data-item="reparo de placas" href="https://wa.me/5567992537517">
+            <svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-cpu"></use></svg>
+            <div>
+              <h3>Reparo de placas</h3>
+              <p>Placas, fontes e componentes.</p>
+            </div>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a class="service-feature" data-wa="service" data-item="limpeza e formatação" href="https://wa.me/5567992537517">
+            <svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-clean"></use></svg>
+            <div>
+              <h3>Limpeza e formatação</h3>
+              <p>Cuidados com o seu equipamento.</p>
+            </div>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a class="service-feature" data-wa="service" data-item="recuperação de dados" href="https://wa.me/5567992537517">
+            <svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-data"></use></svg>
+            <div>
+              <h3>Recuperação de dados</h3>
+              <p>Consulte as opções para seus arquivos.</p>
+            </div>
+            <span aria-hidden="true">↗</span>
+          </a>
         </div>
         <div class="services-layout">
           <div class="service-groups">
             <details open>
               <summary>
-                Computadores e notebooks <span aria-hidden="true">+</span>
+                <svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-laptop"></use></svg>
+                <span class="service-name">Computadores e notebooks</span>
+                <span class="service-toggle" aria-hidden="true">+</span>
               </summary>
               <div class="detail-content">
                 <h3>Computadores</h3>
@@ -184,14 +282,16 @@
                   Reparo de placa-mãe, BGA, telas e fontes. Limpeza, formatação,
                   recuperação de dados e acessórios.
                 </p>
-                <a class="text-link" href="#lp-notebooks"
+                <a class="text-link" href="lp-notebooks.html"
                   >Ver reparos de notebooks <span aria-hidden="true">→</span></a
                 >
               </div>
             </details>
             <details>
               <summary>
-                Impressoras e monitores <span aria-hidden="true">+</span>
+                <svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-printer"></use></svg>
+                <span class="service-name">Impressoras e monitores</span>
+                <span class="service-toggle" aria-hidden="true">+</span>
               </summary>
               <div class="detail-content">
                 <h3>Impressoras</h3>
@@ -225,7 +325,9 @@
             </details>
             <details>
               <summary>
-                Nobreaks e energia <span aria-hidden="true">+</span>
+                <svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-bolt"></use></svg>
+                <span class="service-name">Nobreaks e energia</span>
+                <span class="service-toggle" aria-hidden="true">+</span>
               </summary>
               <div class="detail-content">
                 <h3>Nobreaks</h3>
@@ -246,7 +348,9 @@
             </details>
             <details>
               <summary>
-                Catracas e relógios de ponto <span aria-hidden="true">+</span>
+                <svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-clock"></use></svg>
+                <span class="service-name">Catracas e relógios de ponto</span>
+                <span class="service-toggle" aria-hidden="true">+</span>
               </summary>
               <div class="detail-content">
                 <h3>Catracas eletrônicas</h3>
@@ -281,7 +385,9 @@
             </details>
             <details>
               <summary>
-                Outros eletrônicos <span aria-hidden="true">+</span>
+                <svg class="service-icon" aria-hidden="true" focusable="false"><use href="#service-icon-tools"></use></svg>
+                <span class="service-name">Outros eletrônicos</span>
+                <span class="service-toggle" aria-hidden="true">+</span>
               </summary>
               <div class="detail-content extra-services">
                 <div>
@@ -368,6 +474,7 @@
             </figcaption>
           </figure>
         </div>
+        </div>
       </section>
 
       <section
@@ -386,25 +493,248 @@
               disponibilidade.
             </p>
           </div>
-          <figure class="product-photo">
-            <img
-              src="assets/products-tall-1200.webp"
-              srcset="
-                assets/products-tall-640.webp   640w,
-                assets/products-tall-1200.webp 1200w,
-                assets/products-tall-1680.webp 1680w
-              "
-              sizes="(max-width: 767px) 100vw, 88vw"
-              width="1536"
-              height="1024"
-              loading="lazy"
-              decoding="async"
-              alt="Composição ilustrativa com notebook, desktop, monitor e impressora"
-            />
-            <figcaption>
-              Imagens ilustrativas. Modelos e disponibilidade sob consulta.
-            </figcaption>
-          </figure>
+          <div class="catalog-showcase" aria-labelledby="catalog-title">
+            <div class="catalog-heading">
+              <div>
+                <p class="catalog-eyebrow">CATÁLOGO DEMONSTRATIVO</p>
+                <h3 id="catalog-title">
+                  Uma amostra do que você pode encontrar.
+                </h3>
+              </div>
+              <p>
+                Veja como produtos, valores e informações podem aparecer no
+                catálogo da loja.
+              </p>
+            </div>
+            <p class="catalog-notice" role="note">
+              <strong>Conteúdo fictício para esta proposta:</strong> nomes,
+              preços, quantidades e especificações não representam produtos,
+              ofertas ou estoque reais.
+            </p>
+            <div
+              class="catalog-toolbar"
+              id="catalog-tools"
+              role="search"
+              hidden
+            >
+              <label class="catalog-field">
+                <span>Buscar produto</span>
+                <input
+                  id="catalog-search"
+                  type="search"
+                  placeholder="Ex.: notebook, monitor"
+                  autocomplete="off"
+                />
+              </label>
+              <label class="catalog-field">
+                <span>Categoria</span>
+                <select id="catalog-category">
+                  <option value="all">Todas as categorias</option>
+                  <option value="notebooks">Notebooks</option>
+                  <option value="desktops">Desktops</option>
+                  <option value="monitores">Monitores</option>
+                  <option value="impressoras">Impressoras</option>
+                </select>
+              </label>
+              <label class="catalog-field">
+                <span>Ordenar por</span>
+                <select id="catalog-sort">
+                  <option value="featured">Em destaque</option>
+                  <option value="price-low">Menor valor ilustrativo</option>
+                  <option value="price-high">Maior valor ilustrativo</option>
+                </select>
+              </label>
+            </div>
+            <p class="catalog-results" id="catalog-results" aria-live="polite">
+              4 produtos demonstrativos
+            </p>
+            <div class="catalog-grid" id="catalog-grid">
+              <article
+                class="catalog-card"
+                data-catalog-card
+                data-category="notebooks"
+                data-price="389990"
+              >
+                <div class="catalog-item-media" aria-hidden="true">
+                  <img
+                    src="assets/catalog-notebook.webp"
+                    width="640"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                    alt=""
+                  />
+                </div>
+                <div class="catalog-card-body">
+                  <p class="catalog-product-type">
+                    NOTEBOOK · EXEMPLO FICTÍCIO
+                  </p>
+                  <h4>Nexa 14</h4>
+                  <ul class="catalog-specs">
+                    <li>Tela IPS de 14 polegadas</li>
+                    <li>16 GB de memória · SSD 512 GB</li>
+                    <li>Processador demonstrativo de 6 núcleos</li>
+                  </ul>
+                  <div class="catalog-values">
+                    <div>
+                      <span>Preço ilustrativo</span>
+                      <strong>R$ 3.899,90</strong>
+                    </div>
+                    <div>
+                      <span>Estoque fictício</span>
+                      <strong>3 unidades</strong>
+                    </div>
+                  </div>
+                  <a
+                    class="catalog-cta"
+                    data-wa="catalog"
+                    data-item="Nexa 14 (notebook demonstrativo)"
+                    href="https://wa.me/5567992537517"
+                    >Consultar modelos reais
+                    <span aria-hidden="true">↗</span></a
+                  >
+                </div>
+              </article>
+              <article
+                class="catalog-card"
+                data-catalog-card
+                data-category="desktops"
+                data-price="349990"
+              >
+                <div class="catalog-item-media" aria-hidden="true">
+                  <img
+                    src="assets/catalog-desktop.webp"
+                    width="640"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                    alt=""
+                  />
+                </div>
+                <div class="catalog-card-body">
+                  <p class="catalog-product-type">DESKTOP · EXEMPLO FICTÍCIO</p>
+                  <h4>Atlas Office</h4>
+                  <ul class="catalog-specs">
+                    <li>Processador demonstrativo de 6 núcleos</li>
+                    <li>16 GB de memória · SSD 512 GB</li>
+                    <li>Conexões para uso diário</li>
+                  </ul>
+                  <div class="catalog-values">
+                    <div>
+                      <span>Preço ilustrativo</span>
+                      <strong>R$ 3.499,90</strong>
+                    </div>
+                    <div>
+                      <span>Estoque fictício</span>
+                      <strong>4 unidades</strong>
+                    </div>
+                  </div>
+                  <a
+                    class="catalog-cta"
+                    data-wa="catalog"
+                    data-item="Atlas Office (desktop demonstrativo)"
+                    href="https://wa.me/5567992537517"
+                    >Consultar modelos reais
+                    <span aria-hidden="true">↗</span></a
+                  >
+                </div>
+              </article>
+              <article
+                class="catalog-card"
+                data-catalog-card
+                data-category="monitores"
+                data-price="109990"
+              >
+                <div class="catalog-item-media" aria-hidden="true">
+                  <img
+                    src="assets/catalog-monitor.webp"
+                    width="640"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                    alt=""
+                  />
+                </div>
+                <div class="catalog-card-body">
+                  <p class="catalog-product-type">MONITOR · EXEMPLO FICTÍCIO</p>
+                  <h4>Vision 24</h4>
+                  <ul class="catalog-specs">
+                    <li>Tela de 24 polegadas · Full HD</li>
+                    <li>Painel IPS demonstrativo · 100 Hz</li>
+                    <li>Entradas HDMI e DisplayPort</li>
+                  </ul>
+                  <div class="catalog-values">
+                    <div>
+                      <span>Preço ilustrativo</span>
+                      <strong>R$ 1.099,90</strong>
+                    </div>
+                    <div>
+                      <span>Estoque fictício</span>
+                      <strong>6 unidades</strong>
+                    </div>
+                  </div>
+                  <a
+                    class="catalog-cta"
+                    data-wa="catalog"
+                    data-item="Vision 24 (monitor demonstrativo)"
+                    href="https://wa.me/5567992537517"
+                    >Consultar modelos reais
+                    <span aria-hidden="true">↗</span></a
+                  >
+                </div>
+              </article>
+              <article
+                class="catalog-card"
+                data-catalog-card
+                data-category="impressoras"
+                data-price="124990"
+              >
+                <div class="catalog-item-media" aria-hidden="true">
+                  <img
+                    src="assets/catalog-printer.webp"
+                    width="640"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                    alt=""
+                  />
+                </div>
+                <div class="catalog-card-body">
+                  <p class="catalog-product-type">
+                    IMPRESSORA · EXEMPLO FICTÍCIO
+                  </p>
+                  <h4>Printa Eco</h4>
+                  <ul class="catalog-specs">
+                    <li>Multifuncional colorida</li>
+                    <li>Wi-Fi · impressão frente e verso</li>
+                    <li>Sistema de tinta demonstrativo</li>
+                  </ul>
+                  <div class="catalog-values">
+                    <div>
+                      <span>Preço ilustrativo</span>
+                      <strong>R$ 1.249,90</strong>
+                    </div>
+                    <div>
+                      <span>Estoque fictício</span>
+                      <strong>2 unidades</strong>
+                    </div>
+                  </div>
+                  <a
+                    class="catalog-cta"
+                    data-wa="catalog"
+                    data-item="Printa Eco (impressora demonstrativa)"
+                    href="https://wa.me/5567992537517"
+                    >Consultar modelos reais
+                    <span aria-hidden="true">↗</span></a
+                  >
+                </div>
+              </article>
+            </div>
+            <p class="catalog-empty" id="catalog-empty" hidden>
+              Nenhum exemplo corresponde à busca. Tente outra palavra ou
+              categoria.
+            </p>
+          </div>
           <div class="product-grid">
             <div class="product-group">
               <h3>Informática para o dia a dia</h3>
@@ -499,76 +829,6 @@
       </section>
 
       <section
-        class="section container notebook-section"
-        id="lp-notebooks"
-        aria-labelledby="notebooks-title"
-        tabindex="-1"
-      >
-        <figure class="notebook-photo">
-          <img
-            src="assets/hero-640.webp"
-            srcset="assets/hero-640.webp 640w, assets/hero-1200.webp 1200w"
-            sizes="(max-width: 767px) 100vw, 42vw"
-            width="1672"
-            height="941"
-            loading="lazy"
-            decoding="async"
-            alt="Fotografia ilustrativa de reparo em notebook"
-          />
-          <figcaption>Reparos de notebooks. Imagem ilustrativa.</figcaption>
-        </figure>
-        <div class="notebook-content">
-          <p class="eyebrow">Reparos de notebooks</p>
-          <h2 id="notebooks-title">
-            Mais vida para<br />o seu <span>notebook.</span>
-          </h2>
-          <div class="repair-grid">
-            <a
-              data-wa="repair"
-              data-item="reparo de placa-mãe e BGA"
-              href="https://wa.me/5567992537517"
-              ><h3>Placa-mãe e BGA <span aria-hidden="true">↗</span></h3>
-              <p>Reparo de placas e troca de BGA.</p></a
-            >
-            <a
-              data-wa="repair"
-              data-item="troca de tela, conserto de dobradiças e carcaça"
-              href="https://wa.me/5567992537517"
-              ><h3>Tela e estrutura <span aria-hidden="true">↗</span></h3>
-              <p>Troca de tela, conserto de dobradiças e carcaça.</p></a
-            >
-            <a
-              data-wa="repair"
-              data-item="limpeza, formatação e recuperação de dados"
-              href="https://wa.me/5567992537517"
-              ><h3>Limpeza e dados <span aria-hidden="true">↗</span></h3>
-              <p>Limpeza, formatação e recuperação de arquivos.</p></a
-            >
-            <a
-              data-wa="repair"
-              data-item="substituição de HD por SSD"
-              href="https://wa.me/5567992537517"
-              ><h3>Do HD para o SSD <span aria-hidden="true">↗</span></h3>
-              <p>Consulte a substituição compatível com seu equipamento.</p></a
-            >
-          </div>
-          <a
-            class="button"
-            data-wa="service"
-            data-item="notebook"
-            href="https://wa.me/5567992537517"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Pedir orçamento <span aria-hidden="true">↗</span></a
-          >
-          <p class="fine-print">
-            Conte o modelo e o que está acontecendo. Peças, prazo e valores
-            dependem de confirmação da equipe.
-          </p>
-        </div>
-      </section>
-
-      <section
         class="section about-section"
         id="quem-somos"
         aria-labelledby="about-title"
@@ -616,9 +876,7 @@
             Leia as quatro publicações da empresa sobre cuidados com notebook,
             teclado e memória. Conteúdo de 2023, sujeito à revisão editorial.
           </p>
-          <a
-            class="text-link"
-            href="blog.html"
+          <a class="text-link" href="blog.html"
             >Explorar o blog <span aria-hidden="true">↗</span></a
           >
         </div>
@@ -633,7 +891,8 @@
         <div class="container">
           <div class="contact-layout">
             <div>
-              <h2 id="contact-title">Vamos <span>conversar?</span></h2>
+              <p class="eyebrow contact-intro">Precisa de manutenção ou assistência?</p>
+              <h2 id="contact-title">Fale <span>conosco.</span></h2>
               <a
                 class="button"
                 data-wa="general"
@@ -711,7 +970,8 @@
       </div>
       <nav aria-label="Navegação do rodapé">
         <a href="#inicio">Início</a><a href="#servicos">Serviços</a
-        ><a href="#produtos">Produtos</a><a href="#lp-notebooks">LP-Notebooks</a
+        ><a href="#produtos">Produtos</a
+        ><a href="lp-notebooks.html">LP-Notebooks</a
         ><a href="#quem-somos">Quem Somos</a><a href="blog.html">Blog</a
         ><a href="#contato">Contato</a>
       </nav>
@@ -721,7 +981,7 @@
     </footer>
     <noscript
       ><p class="noscript-note">
-        Use os links do rodapé para navegar. Os contatos continuam disponíveis;
+        Use os links da navegação ou do rodapé. Os contatos continuam disponíveis;
         mensagens específicas exigem JavaScript.
       </p></noscript
     >

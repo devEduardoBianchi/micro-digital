@@ -37,7 +37,7 @@ const assert = require("node:assert/strict");
   );
   const targets = await page
     .locator(".branched-nav a")
-    .evaluateAll((ls) => ls.map((l) => l.hash));
+    .evaluateAll((ls) => ls.filter((l) => l.pathname === location.pathname && l.hash).map((l) => l.hash));
   for (const hash of targets) {
     await page.locator("#menu-toggle").click();
     await page.locator(`.branched-nav a[href="${hash}"]`).click();
@@ -53,8 +53,8 @@ const assert = require("node:assert/strict");
   await page.locator(".branched-nav a").first().focus();
   await page.keyboard.press("End");
   assert.equal(
-    await page.evaluate(() => document.activeElement.hash),
-    "#lp-notebooks",
+    await page.evaluate(() => document.activeElement.pathname),
+    "/lp-notebooks.html",
   );
   for (let i = 0; i < 10; i++) {
     await page.keyboard.press("Tab");

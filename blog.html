@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="description" content="Dicas publicadas pela Micro Digital Dourados sobre cuidados com notebooks e computadores." />
-    <meta name="theme-color" content="#f6f6f3" />
+    <meta name="theme-color" content="#101620" />
     <title>Blog | Micro Digital Dourados</title>
     <link rel="icon" href="assets/logo-digital.webp" type="image/webp" />
     <link rel="preload" href="assets/outfit-variable-web.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="styles.css" />
     <script src="config.js" defer></script>
     <script src="app.js" defer></script>
+    <script src="interactions.js" defer></script>
     <script src="assets/gsap.min.js" defer></script>
     <script src="assets/ScrollTrigger.min.js" defer></script>
     <script src="motion.js" defer></script>
@@ -20,30 +21,24 @@
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <header class="site-header">
       <div class="header-inner">
-        <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation-dialog" aria-haspopup="dialog" aria-label="Abrir menu" hidden>
-          <span class="hamburger" aria-hidden="true"><i></i><i></i><i></i></span><span class="menu-label">Menu</span>
-        </button>
-        <a class="brand" href="index.html#inicio" aria-label="Micro Digital Dourados, início"><img src="assets/logo-navbar-transparent.webp" width="240" height="152" alt="Micro Digital Informática" /></a>
+        <a class="brand" href="index.html#inicio" aria-label="Micro Digital Dourados, início">
+          <img src="assets/logo-navbar-transparent.webp" width="240" height="152" alt="Micro Digital Informática" />
+        </a>
+        <nav class="header-nav" aria-label="Navegação principal">
+          <a href="index.html#inicio">Início</a>
+          <a href="index.html#servicos">Serviços</a>
+          <a href="index.html#produtos">Produtos</a>
+          <a href="blog.html" aria-current="page">Blog</a>
+          <a href="index.html#quem-somos">Quem Somos</a>
+          <a href="index.html#contato">Contato</a>
+          <a href="lp-notebooks.html">LP-Notebooks</a>
+        </nav>
         <div class="header-actions">
-          <a class="header-phone" href="tel:+556734222472">(67) 3422-2472</a>
           <a class="button compact" data-wa="general" href="https://wa.me/5567992537517" target="_blank" rel="noopener noreferrer">Falar no WhatsApp <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </header>
-    <dialog id="navigation-dialog" aria-labelledby="menu-title">
-      <div class="menu-top">
-        <h2 id="menu-title">Explore a Micro Digital</h2>
-        <button id="menu-close" class="close-button" aria-label="Fechar menu" type="button">✕</button>
-      </div>
-      <nav aria-label="Navegação principal" class="branched-nav">
-        <span class="trunk" aria-hidden="true"></span><span class="trunk-selected" aria-hidden="true"></span>
-        <a href="index.html#inicio">Início</a><a href="index.html#servicos">Serviços</a><a href="index.html#produtos">Produtos</a>
-        <a href="blog.html" aria-current="page">Blog <small>Dicas</small></a>
-        <a href="index.html#quem-somos">Quem Somos</a><a href="index.html#contato">Contato</a>
-        <a href="index.html#lp-notebooks">LP-Notebooks <small>Reparos</small></a>
-      </nav>
-      <p class="menu-footer">Informática e assistência técnica.<br />Em Dourados, desde 1995.</p>
-    </dialog>
+
     <main id="conteudo">
       <section class="blog-hero" aria-labelledby="blog-page-title">
         <div class="container blog-hero-inner">
@@ -118,7 +113,7 @@
     </main>
     <footer class="container site-footer">
       <div><strong>Micro Digital Dourados</strong><p>Proposta local para apresentação. Conteúdo sujeito à aprovação.</p></div>
-      <nav aria-label="Navegação do rodapé"><a href="index.html#inicio">Início</a><a href="index.html#servicos">Serviços</a><a href="index.html#produtos">Produtos</a><a href="index.html#lp-notebooks">LP-Notebooks</a><a href="index.html#quem-somos">Quem Somos</a><a href="blog.html" aria-current="page">Blog</a><a href="index.html#contato">Contato</a></nav>
+      <nav aria-label="Navegação do rodapé"><a href="index.html#inicio">Início</a><a href="index.html#servicos">Serviços</a><a href="index.html#produtos">Produtos</a><a href="lp-notebooks.html">LP-Notebooks</a><a href="index.html#quem-somos">Quem Somos</a><a href="blog.html" aria-current="page">Blog</a><a href="index.html#contato">Contato</a></nav>
     </footer>
   </body>
 </html>

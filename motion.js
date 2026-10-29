@@ -3,21 +3,78 @@
   if (!window.gsap || !window.ScrollTrigger) return;
   gsap.registerPlugin(ScrollTrigger);
 
+  // ScrollTrigger temporarily resets scrolling while rebuilding media contexts.
+  // Keep the last settled position so changing motion preferences preserves it.
+  let lastScrollPosition = window.scrollY;
+  let preferenceScrollPosition = lastScrollPosition;
+  let rebuildingMedia = false;
+  window.addEventListener("scroll", () => {
+    if (!rebuildingMedia) lastScrollPosition = window.scrollY;
+  }, { passive: true });
+  gsap.addEventListener("matchMediaInit", () => {
+    preferenceScrollPosition = lastScrollPosition;
+    rebuildingMedia = true;
+  });
+  gsap.addEventListener("matchMedia", () => {
+    window.scrollTo({ top: preferenceScrollPosition, behavior: "instant" });
+    lastScrollPosition = window.scrollY;
+    rebuildingMedia = false;
+    ScrollTrigger.update();
+  });
+
   const motion = gsap.matchMedia();
   motion.add("(prefers-reduced-motion: no-preference)", () => {
-    const entry = document.querySelector(".hero-content, .blog-hero-inner");
-    if (entry) {
-      const intro = gsap.utils.toArray(entry.querySelectorAll(".eyebrow, h1, .hero-description, .hero-since, .actions, .blog-hero-aside"));
-      gsap.timeline({ defaults: { ease: "power2.out", duration: 0.72 } })
-        .from(intro, { autoAlpha: 0, y: 20, stagger: 0.09, clearProps: "opacity,visibility,transform" });
+    const hero = document.querySelector(".hero-content");
+    const heroSnapshots = [];
+    if (hero) {
+      // Split only text nodes so the existing line break and accent remain intact.
+      const splitWords = (element) => {
+        if (!element) return [];
+        heroSnapshots.push([element, element.innerHTML]);
+        const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+        const nodes = [];
+        while (walker.nextNode()) if (walker.currentNode.textContent.trim()) nodes.push(walker.currentNode);
+        nodes.forEach((node) => {
+          const fragment = document.createDocumentFragment();
+          node.textContent.split(/(\s+)/).forEach((part) => {
+            if (!part) return;
+            if (/^\s+$/.test(part)) fragment.append(document.createTextNode(part));
+            else {
+              const word = document.createElement("span");
+              word.className = "reveal-word";
+              word.textContent = part;
+              fragment.append(word);
+            }
+          });
+          node.replaceWith(fragment);
+        });
+        return [...element.querySelectorAll(".reveal-word")];
+      };
+      const groups = [".eyebrow", "h1", ".hero-description", ".hero-since"].map((selector) => splitWords(hero.querySelector(selector)));
+      const reveal = { autoAlpha: 0, y: 12, filter: "blur(6px)", duration: .65, ease: "power2.out", clearProps: "opacity,visibility,transform,filter" };
+      gsap.timeline()
+        .from(groups[0], { ...reveal, stagger: .025 }, 0)
+        .from(groups[1], { ...reveal, stagger: .065, duration: .8 }, .12)
+        .from(groups[2], { ...reveal, stagger: .015, duration: .55 }, .36)
+        .from(groups[3], { ...reveal, stagger: .02, duration: .5 }, .5)
+        .from(hero.querySelector(".actions"), { autoAlpha: 0, y: 14, duration: .65, ease: "power2.out", clearProps: "opacity,visibility,transform" }, .64);
+    } else {
+      const entry = document.querySelector(".blog-hero-inner, .repair-page-content");
+      if (entry) {
+        const intro = gsap.utils.toArray(entry.querySelectorAll(".eyebrow, h1, .hero-description, .hero-since, .actions, .blog-hero-aside"));
+        gsap.timeline({ defaults: { ease: "power2.out", duration: .72 } })
+          .from(intro, { autoAlpha: 0, y: 20, stagger: .09, clearProps: "opacity,visibility,transform" });
+      }
     }
 
     const selectors = [
-      "#servicos .section-heading", ".services-layout > *",
-      ".products-section .section-heading", ".product-photo", ".product-group",
+      "#servicos .section-heading", ".service-feature", ".services-layout > *",
+      ".products-section .section-heading", ".catalog-heading > *",
+      ".catalog-notice", ".catalog-grid", ".product-group",
       ".notebook-photo", ".notebook-content", ".repair-grid > *",
+      ".repair-page-photo", ".repair-page-card", ".repair-page-contact-inner > *",
       ".about-layout > *", ".blog-section > *", ".contact-layout > *", ".careers",
-      ".blog-list-heading > *", ".article-card", ".blog-contact-inner > *", ".site-footer > *"
+      ".blog-list-heading > *", ".article-card", ".blog-contact-inner > *"
     ];
     const targets = gsap.utils.toArray(selectors.join(", "));
     gsap.set(targets, { autoAlpha: 0, y: 26 });
@@ -95,6 +152,7 @@
       });
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       gsap.set(targets, { clearProps: "opacity,visibility,transform" });
+      heroSnapshots.forEach(([element, original]) => { element.innerHTML = original; });
     };
   });
 })();

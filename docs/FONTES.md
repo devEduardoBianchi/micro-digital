@@ -14,8 +14,20 @@ Consulta em 26/10/2026. O briefing do usuário e as páginas públicas são a ba
 
 ## Separação entre fato e proposta
 
-“Tecnologia perto. Solução de verdade.” e os títulos de seção são sugestões editoriais. As fotografias são ilustrações geradas, identificadas na página. Não há depoimentos, avaliações, selos, prêmios, métricas de clientes ou marcas inventadas.
+“Tecnologia perto. Solução de verdade.” e os títulos de seção são sugestões editoriais. As imagens de equipamentos são ilustrações geradas e conceituais, identificadas na página. Os produtos do catálogo não representam modelos, preços ou estoque reais. Não há depoimentos, avaliações, selos, prêmios, métricas de clientes ou marcas inventadas.
 
 ## Fontes tipográficas
 
 Outfit: distribuição Google Fonts, licença OFL em assets/OFL-Outfit.txt. Manrope: arquivo local da distribuição @fontsource/manrope, licença em assets/OFL-Manrope.txt. Ambas servidas localmente; nenhum serviço de fonte é consultado pelo visitante.
+
+
+## Revisão visual de 27/10/2026
+
+- Referência de composição, cores de base, bordas e ritmo: https://homstech.com.br/#inicio . A paleta final retoma o azul-grafite em tons mais escuros: #101620/#0c121b, cartões #18202d e vermelho Micro Digital nos destaques. Conteúdo comercial da referência não foi incorporado.
+- Faixa de áreas com ícones: https://spell.sh/docs/marquee . Adaptação nativa com CSS e JavaScript, pausa acessível e suspensão fora da tela.
+- Entrada da hero: https://spell.sh/docs/blur-reveal . Adaptação em GSAP com desfoque limitado às palavras, removido ao final.
+- Navbar direta nas três páginas, sem menu em diálogo. Celular com os sete links expostos em duas linhas.
+- Assistência técnica destacada por três chamadas ao WhatsApp, mantendo as cinco categorias expansíveis.
+- Títulos de seção e aberturas ampliados com escala adaptada para celular. Não foram instaladas dependências.
+
+Ajuste final: a área de contato apresenta “Precisa de manutenção ou assistência?” e o título “Fale conosco.”.

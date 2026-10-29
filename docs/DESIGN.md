@@ -1,7 +1,7 @@
 # Micro Digital: proximidade precisa
 
 ## Contrato da proposta
-Protótipo local para apresentar os produtos e a assistência técnica da Micro Digital Dourados. Página principal e blog separado, sem venda, preços, formulários, rastreadores ou publicação. A ação principal é iniciar uma conversa com contexto no WhatsApp.
+Protótipo local para apresentar os produtos e a assistência técnica da Micro Digital Dourados. Página principal e blog separado, sem venda, checkout, formulários, rastreadores ou publicação. O catálogo inclui quatro modelos com valores, quantidades e especificações fictícios, identificados como demonstrativos. A ação principal é iniciar uma conversa com contexto no WhatsApp.
 
 Não foi encontrado projeto existente desta empresa. Os projetos loja-tech e nexo-desk são independentes. A implementação usa HTML, CSS e JavaScript nativos, sem build. GSAP Core e ScrollTrigger 3.15 foram adicionados localmente a pedido do usuário, sem outra dependência. A avaliação da skill shadcn concluiu que instalar React, Tailwind e primitives não se justifica. O menu recria a ideia do Branched Menu, não o código nem a página do ReactBits.
 
@@ -12,7 +12,7 @@ O vermelho vem da marca existente. Cinza-prata, grafite e branco suave ampliam s
 
 A tipografia Outfit tem curvas acolhedoras e títulos compactos. Manrope sustenta a leitura. A execução prioriza ritmo e alinhamento: textos reais, espaços deliberados e controles confortáveis, sem ornamentação que concorra com o atendimento.
 
-Fotografias ilustrativas mostram equipamentos e manutenção. Não representam funcionários, instalações ou estoque reais. O cuidado artesanal está na seleção dos enquadramentos e na economia dos elementos, não na quantidade de efeitos.
+Ilustrações de equipamentos e manutenção são conceituais. Não representam funcionários, instalações ou estoque reais. O catálogo usa uma ilustração individual por produto demonstrativo, sem marcas ou modelos reais. O cuidado artesanal está na seleção dos enquadramentos e na economia dos elementos, não na quantidade de efeitos.
 
 O movimento comunica estado. O eixo do menu e suas ramificações tornam a navegação visível; a opção ativa desenha um caminho. Não há animações contínuas. A precisão final exige revisão visual, teclado, telas estreitas e conteúdo verificável.
 
@@ -20,11 +20,13 @@ Na revisão, os serviços e os reparos de notebook receberam linhas finas e luz 
 
 A marca na área de contato foi refeita em PNG com transparência alfa. O cartão claro foi removido. Os resumos do Blog usam a mesma expansão dos serviços.
 
+O catálogo usa luz vermelha suave inspirada no Magic Bento/Spotlight Card do ReactBits. Botões de contato nas três páginas recebem reflexo inspirado no Specular Button. A implementação nativa não importa componentes React nem adiciona dependências. Uma camada de gradiente se desloca por transform, em um único requestAnimationFrame sob demanda. Leituras de geometria são agrupadas e invalidadas ao rolar ou redimensionar. Ponteiros de toque e movimento reduzido desativam as camadas e removem os eventos. Foco de teclado mantém borda visível. Referências: https://reactbits.dev/c/components/magic-bento e https://reactbits.dev/components/specular-button.
+
 ## Leitura das referências geradas
 - Início: título em duas linhas, vermelho pontual, composição aberta sobre fotografia à direita, botões abaixo. O telefone inventado pela imagem não é usado. Header real limitado a 80px.
 - Serviços: conteúdo expansível à esquerda, macro de manutenção à direita. Cinco grupos, descrições completas dentro deles. O texto cresce livremente, sem alturas fixas.
-- Produtos: quatro famílias em grade 2x2 sem células vazias, links individuais. Fotografia contextual separada da lista para evitar falsas associações de modelos.
-- Notebooks: imagem à esquerda e texto à direita, quatro grupos de reparos. Reescrita factual de qualquer promessa gerada.
+- Produtos: quatro famílias em grade 2x2 sem células vazias, links individuais. Catálogo demonstrativo com quatro modelos, pesquisa, filtro de categoria e ordenação por preço. Nomes, valores, estoque e especificações são fictícios e destacados; WhatsApp pede consulta de opções reais.
+- Notebooks: página própria acessada pelo menu e pela chamada no serviço de computadores. Quatro cartões com imagens geradas para placa/BGA, tela/estrutura, limpeza/dados e SSD; cada um abre uma conversa contextual. Reescrita factual de qualquer promessa gerada.
 - Quem somos: 1995 como prova documental, losango discreto e história curta. Não importar afirmações sobre prêmios, cobertura ou representação comercial.
 - Blog: seção compacta na home, com entrada para página separada. Quatro cartões reúnem publicações de 2023, com resumos adaptados e links originais.
 - Contato: contatos reais em colunas, logo ampliada, horário com confirmação pendente e currículo por e-mail. Sem mapa inventado.
@@ -39,4 +41,26 @@ Mobile: layouts viram uma coluna, imagens com proporção reservada, navegação
 ## Skills aplicadas
 anti-ui-slop, design-taste-frontend, ui-ux-pro-max: direção, estados e inspeção. image-to-code e imagegen-frontend-web: sete imagens independentes antes do código. brandkit: restauração digital conservadora da logo. canvas-design: filosofia e prancha PNG de apresentação. gpt-taste: variedade e proporção, subordinadas ao conteúdo real e desempenho. shadcn: avaliação de compatibilidade, sem instalação desnecessária. everyday-security: links explícitos, sem coleta, scripts externos ou segredos. caveman: apenas comunicação no chat.
 
-Geração: ferramenta image_gen integrada. Referências em design/01-inicio.png até 07-contato.png. Fotos originais geradas em design/*-source.png. Prompt comum: loja local de informática brasileira, vermelho/prata/grafite, títulos Outfit, sem preços, marcas, estoques ou alegações inventadas. Logo: restaurar bordas mantendo lettering Micro, DIGITAL, INFORMÁTICA, losango e disco. Os arquivos da pasta design são referências internas; a página não carrega essas pranchas.
+Geração: ferramenta image_gen integrada. Referências em design/01-inicio.png até 07-contato.png. Ilustrações-fonte em design/*-source.png. Prompt comum: loja local de informática brasileira, vermelho/prata/grafite, títulos Outfit, sem ofertas reais ou alegações comerciais. A amostra de catálogo apresenta valores, quantidades e especificações fictícios com avisos visíveis. Logo: restaurar bordas mantendo lettering Micro, DIGITAL, INFORMÁTICA, losango e disco. Os arquivos da pasta design são referências internas; a página não carrega essas pranchas.
+
+
+## Revisão visual de 27/10/2026
+
+- Referência de composição, cores de base, bordas e ritmo: https://homstech.com.br/#inicio . A paleta final retoma o azul-grafite em tons mais escuros: #101620/#0c121b, cartões #18202d e vermelho Micro Digital nos destaques. Conteúdo comercial da referência não foi incorporado.
+- Faixa de áreas com ícones: https://spell.sh/docs/marquee . Adaptação nativa com CSS e JavaScript, pausa acessível e suspensão fora da tela.
+- Entrada da hero: https://spell.sh/docs/blur-reveal . Adaptação em GSAP com desfoque limitado às palavras, removido ao final.
+- Navbar direta nas três páginas, sem menu em diálogo. Celular com os sete links expostos em duas linhas.
+- Assistência técnica destacada por três chamadas ao WhatsApp, mantendo as cinco categorias expansíveis.
+- Títulos de seção e aberturas ampliados com escala adaptada para celular. Não foram instaladas dependências.
+
+Ajuste final: a área de contato apresenta “Precisa de manutenção ou assistência?” e o título “Fale conosco.”.
+
+
+## Interações do catálogo
+
+- Foco dos campos com cor, contorno e deslocamento de 1 px, preservando o foco visível do teclado.
+- Reordenação e filtro dos quatro exemplos com geometria lida antes e depois da alteração do DOM; apenas transform e opacity são animados durante a transição.
+- Animações anteriores são canceladas a cada novo resultado. Busca e filtros não aguardam a conclusão do movimento.
+- A entrada por rolagem é aplicada à grade, evitando disputa com a animação individual dos cartões e com o hover.
+- A preferência de movimento reduzido é respeitada em tempo real; a reconstrução dos gatilhos de rolagem preserva a posição da página.
+- Conferidos em 1440 e 390 px: busca, filtros combinados, ordem por valor, mudanças rápidas, nenhum resultado, retomada do movimento e ausência de rolagem horizontal.
